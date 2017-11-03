@@ -213,7 +213,9 @@ var Pjax = {
 
     //Go up in the nodelist until we
     //find something with an href
-    while (el && !this.getHref(el)) {
+
+    // Fixes: https://github.com/luruke/barba.js/issues/114
+    while (el && !(this.getHref(el) && el.tagName!='IMG')) {
       el = el.parentNode;
     }
 
